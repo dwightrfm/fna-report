@@ -319,9 +319,37 @@ a{color:var(--tea);font-weight:600}
 
 .mobile-math{display:none}
 .footer-note{text-align:center;color:var(--dim);font-size:12px;margin-top:6px}
-.retgrid{grid-template-columns:150px 70px 70px auto minmax(0,1fr);align-items:end;gap:12px}
+.retgrid{grid-template-columns:184px 70px 70px auto minmax(0,1fr);align-items:end;gap:12px}
 
 /* responsive */
+/* the commitment and personal introductions (bottom of section 8) */
+.btn[hidden]{display:none}
+.subhd{display:flex;align-items:center;gap:12px;margin:34px 0 14px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tea)}
+.subhd::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--tea2),transparent);opacity:.5}
+.closer{position:relative;margin:30px 0 6px;padding:22px 26px 24px 30px;border-radius:18px;background:linear-gradient(160deg,#e6f4f3,#d3ecea);border:1px solid var(--tea2);box-shadow:0 16px 34px -22px rgba(14,124,122,.7)}
+.closer::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:5px;border-radius:0 4px 4px 0;background:var(--teaG)}
+.closer .tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tea);margin-bottom:10px}
+.closer .say{margin:0;font-size:22px;line-height:1.4;font-weight:700;color:var(--ink)}
+.askrow{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.askrow .say{margin-bottom:8px}
+.askrow .btn{flex:none;margin-top:2px}
+.events{display:flex;flex-direction:column;gap:8px;margin:0 0 18px}
+.ev{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.6);transition:border-color .2s,background .2s}
+.ev .say{margin:0;font-size:15.5px}
+.evtag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:flex;flex-direction:column;gap:4px}
+.evtag .theirs{display:none;width:max-content;font-size:9.5px;letter-spacing:.1em;padding:3px 7px;border-radius:999px;background:var(--teaG);color:#fff}
+.ev.mine{border-color:var(--tea2);background:var(--teabg)}
+.ev.mine .evtag{color:var(--tea)}
+.ev.mine .theirs{display:inline-block}
+.intros{display:grid;grid-template-columns:22px minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.4fr) 160px;gap:8px 10px;align-items:center}
+.intros .hd{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.intros .irow{display:contents}
+.intros .irow[hidden]{display:none}
+.intros .n{font-size:12.5px;font-weight:700;color:var(--dim);text-align:right}
+.intros.partner .n{color:var(--tea);font-size:15px}
+.intros select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:26px;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 15px) 18px,calc(100% - 10px) 18px;background-size:5px 5px;background-repeat:no-repeat}
+.intros select:focus{border-color:var(--tea2);background-color:#fff;box-shadow:0 0 0 4px rgba(58,166,162,.16)}
+.introfoot{display:flex;align-items:center;gap:12px;margin:8px 0 0 22px}
 @media (max-width:1560px){.shell{grid-template-columns:168px minmax(0,1fr) 268px;gap:18px;padding-left:16px;padding-right:16px}.nav a{padding:7px 10px}}
 @media (max-width:1180px){.shell{grid-template-columns:minmax(0,1fr) 270px}.nav{display:none}}
 @media (max-width:940px){
@@ -352,6 +380,14 @@ a{color:var(--tea);font-weight:600}
   .card{padding:20px 16px}
   .card h2{font-size:30px}
   .retgrid{grid-template-columns:1fr 64px 64px}
+  .ev{grid-template-columns:minmax(0,1fr) auto}
+  .ev .evtag{grid-column:1/-1;flex-direction:row;align-items:center}
+  .intros{grid-template-columns:22px minmax(0,1fr) minmax(0,1fr)}
+  .intros .hd{display:none}
+  .intros .irow>:nth-child(4),.intros .irow>:nth-child(5){grid-column:2/-1}
+  .askrow{flex-direction:column;gap:0}
+  .closer{padding:18px 18px 20px 22px}
+  .closer .say{font-size:19px}
 }
 @media (max-width:600px){
   .brand h1,.brand .sub{display:none}
@@ -370,6 +406,34 @@ a{color:var(--tea);font-weight:600}
 @media print{.top,.nav,.rail,.dock,.toasts,.bgx,.grain,.prog{display:none}.shell{display:block}}
 .people .role.s{color:var(--blu)}
 .people [data-spouse-row] .seg button.on{background:var(--bluG);box-shadow:0 8px 18px -10px rgba(63,95,120,.8)}
+
+/* 2026-11-25: dependents one at a time, growing goal boxes, more accounts, next meeting time zones */
+.people [data-dep][hidden]{display:none}
+.depfoot{margin:10px 0 0 96px}
+.longrange{display:flex;flex-direction:column;gap:16px}
+.longrange .in textarea{min-height:84px;font-size:15px;line-height:1.5;resize:none;overflow:hidden}
+.in textarea{overflow:hidden}
+.multi{display:flex;flex-direction:column;gap:8px}
+.mrow2{display:flex;align-items:center;gap:8px}
+.mrow2 .in{flex:1}
+.rmrow{flex:none;width:30px;height:30px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--dim);font-size:18px;line-height:1;cursor:pointer}
+.rmrow:hover{color:#b4532a;border-color:#e2c3b4}
+.addrow{margin-top:6px;padding-left:4px;color:var(--tea)}
+.col-s .addrow{color:var(--blu2)}
+.in.hascal input{padding-right:44px}
+.calbtn{position:absolute;right:5px;top:50%;transform:translateY(-50%);width:32px;height:30px;border-radius:8px;border:0;background:var(--teabg);color:var(--tea);display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.calbtn:hover{background:#cfe8e6}
+.calbtn svg{width:17px;height:17px}
+.calpick{position:absolute;right:0;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none;border:0;padding:0}
+.tzcard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.tzside{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#fff}
+.tzside.them{border-color:var(--tea2);background:var(--teabg)}
+.tzside .k{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.tzside.them .k{color:var(--tea)}
+.tzside .t{font-family:var(--serif);font-size:21px;font-weight:600;margin-top:4px;line-height:1.25}
+.tzside .s{font-size:13px;color:var(--mut);margin-top:3px}
+.tzempty{align-self:center;font-size:13px;color:var(--dim)}
+@container (max-width:560px){.depfoot{margin-left:0}.tzcard{grid-template-columns:minmax(0,1fr)}.retgrid .fld:last-child{grid-column:1/-1}}
 
 /* FNA Report: sits on top of the FNA Intake styles (same tokens, same look). */
 .toasts{bottom:24px}
@@ -687,6 +751,37 @@ a{color:var(--tea);font-weight:600}
     saving: 'were looking at saving', sound: 'and dreams How does that sound', future: 'future',
   };
 
+  /* The commitment (the form's last question) and page 5, Personal Introductions (Bill Cates).
+     The tap answer lives in _commit (app only); the PDF's "future" line prints "Answer: why". */
+  const COMMIT = [['none', 'Nothing stopping us'], ['spouse', 'Talk to spouse'], ['money', 'Money'], ['timing', 'Timing'], ['other', 'Other']];
+  const commitText = (st) => {
+    const a = COMMIT.find((c) => c[0] === st._commit), why = String(st[EXP.future] || '').trim();
+    return a ? (why ? `${a[1]}: ${why}` : a[1]) : why;
+  };
+  const EVENTS = [
+    { id: 'jobs', tag: 'Changed jobs', q: 'Who do you know who just changed jobs and left a 401(k) behind?' },
+    { id: 'retire', tag: 'Retiring', q: 'Who do you know who’s retiring in the next few years?' },
+    { id: 'bonus', tag: 'Bonus or raise', q: 'Who do you know who just got a big bonus or a raise?' },
+    { id: 'inherit', tag: 'Inheritance', q: 'Who do you know who has inherited money, or likely will in the next few years?' },
+    { id: 'biz', tag: 'Starting a business', q: 'Who do you know who’s starting a business, or thinking about it?' },
+  ];
+  const INTRO_ROWS = Array.from({ length: 10 }, (_, i) => ({ name: `Intro ${i + 1} Name`, how: `Intro ${i + 1} How Known`, why: `Intro ${i + 1} Why`, event: `Intro ${i + 1} Event` }));
+  const PARTNER = { name: 'Driven Person Name', how: 'Driven Person How Known', why: 'Driven Person Why' };
+  const introCount = (st) => INTRO_ROWS.filter((r) => String(st[r.name] || '').trim()).length + (String(st[PARTNER.name] || '').trim() ? 1 : 0);
+  // which money-moving event this family is in, from what the FNA already shows (Cates: open with theirs)
+  function theirEvents(st) {
+    const out = new Set();
+    const has = (k) => String(st[k] || '').trim() !== '';
+    for (const w of ['p', 's']) {
+      if (RET.old.some((o) => has(sp(o.emp, w)) || has(sp(o.bal, w)))) out.add('jobs');
+      const age = num(st[w === 'p' ? PEOPLE[0].age : PEOPLE[1].age]) || num(ageFrom(st[(w === 'p' ? PEOPLE[0] : PEOPLE[1]).dob[0]]));
+      const goal = num(st[sp(RET.age, w)]);
+      if (age && goal && goal - age <= 7) out.add('retire');
+      if (INC.other.some((o) => /business|self|llc|own|side/i.test(st[sp(o.src, w)] || ''))) out.add('biz');
+    }
+    return out;
+  }
+
   const RETURN = { date: ['Return Day', 'Return Month', 'Return Year'], hour: 'Return Hour', min: 'Return Min', ampm: ['AM', 'PM'], tz: ['Hawaii', 'Alaska', 'Pacific', 'Mountain', 'Central', 'Eastern'], state: 'State' };
   const NOTES = ['n13', 'n14', 'n15', 'n16', 'n17', 'n18', 'n19', 'n120', 'n21'];
   const RECS = [1, 2, 3].map((n) => [1, 2, 3, 4].map((l) => `rec ${n}.${l}`));
@@ -714,6 +809,10 @@ a{color:var(--tea);font-weight:600}
 
   /* Date keys: state[first] = "MM/DD/YYYY"; export splits into the three boxes in print order. */
   const DATES = [HEADER.date, RETURN.date, ...PEOPLE.map((p) => p.dob)];
+
+  /* Section 3 "longer range" answers: one PDF line each, about this many characters fit. */
+  const LONG_GOALS = [['Any additional goals in the next 3-7 years', '3 to 7 year goals'], ['How about 7+ years', '7+ year goals'], ['Out of all of these goals what is most important t', 'Most important goal']];
+  const LONG_FIT = 95;
 
   /* Long answers that print across several lines. state[first] holds the whole text. */
   const GROUPS = [
@@ -843,10 +942,21 @@ a{color:var(--tea);font-weight:600}
       const a = st[p.age] || ageFrom(st[p.dob[0]]);
       put(p.age, a);
     }
+    // longer range goals print on one short line each; a long answer prints its start there
+    // and the whole answer goes to the Notes lines, so nothing is cut off on paper
+    const spill = [];
+    for (const [k, tag] of LONG_GOALS) {
+      const t = String(st[k] || '').replace(/\s+/g, ' ').trim();
+      if (t.length <= LONG_FIT) continue;
+      skip.add(k);
+      put(k, t.slice(0, LONG_FIT - 14).replace(/\s+\S*$/, '') + '... (see notes)');
+      spill.push(`${tag}: ${t}`);
+    }
     // long text groups
     for (const g of GROUPS) {
       g.forEach((n) => skip.add(n));
-      if ((st[g[0]] || '').trim()) groups.push({ names: g, text: st[g[0]] });
+      const text = g === NOTES ? [String(st[g[0]] || '').trim(), ...spill].filter(Boolean).join('\n') : st[g[0]];
+      if ((text || '').trim()) groups.push({ names: g, text });
     }
     // computed fields
     const computedNames = Object.keys(c).filter((k) => /[A-Za-z]/.test(k) && !/^(ret_|cov_|gap_|savePct|debtAll|debtPay|kids|eduAuto)/.test(k));
@@ -864,6 +974,10 @@ a{color:var(--tea);font-weight:600}
     // single checkboxes
     for (const g of GOALS) { skip.add(g[0]); if (st[g[0]] === true) checks.push(g[0]); }
     for (const q of PROTECT_Q) { skip.add(q.chk); if (st[q.chk] === true) checks.push(q.chk); }
+    // the commitment line: "Talk to spouse: wants Wonder to see the numbers"
+    skip.add(EXP.future); put(EXP.future, commitText(st));
+    // an event tag with no name on its line stays off the paper
+    for (const r of INTRO_ROWS) if (![r.name, r.how, r.why].some((n) => String(st[n] || '').trim())) skip.add(r.event);
     // everything else is plain text or money, as typed
     for (const [k, v] of Object.entries(st)) {
       if (skip.has(k) || k.startsWith('_') || typeof v !== 'string') continue;
@@ -901,6 +1015,13 @@ a{color:var(--tea);font-weight:600}
     [EXP.show10, EXP.showMore, EXP.showLess].forEach((n) => used.add(n));
     for (const g of GOALS) { used.add(g[0]); if (vals[g[0]] === true) st[g[0]] = true; }
     for (const q of PROTECT_Q) { used.add(q.chk); if (vals[q.chk] === true) st[q.chk] = true; }
+    // split the commitment line back into the tap answer and the why
+    used.add(EXP.future);
+    const fut = typeof vals[EXP.future] === 'string' ? vals[EXP.future].trim() : '';
+    if (fut) {
+      const hit = COMMIT.find((c) => fut === c[1] || fut.startsWith(c[1] + ':'));
+      if (hit) { st._commit = hit[0]; const why = fut.slice(hit[1].length).replace(/^:\s*/, ''); if (why) st[EXP.future] = why; } else st[EXP.future] = fut;
+    }
     const calc = new Set(Object.keys(compute({})));
     for (const [k, v] of Object.entries(vals)) {
       if (used.has(k) || calc.has(k) || typeof v !== 'string' || !v.trim()) continue;
@@ -914,7 +1035,7 @@ a{color:var(--tea);font-weight:600}
     return st;
   }
 
-  root.FNA = { sp, PEOPLE, RET_ROWS, RET, INC, PRO, DEBT_ROWS, GOALS, PROTECT_Q, EXP, RETURN, NOTES, RECS, HEADER, CHOICES, DATES, GROUPS, MONEY, PAGE4, num, fmt, compute, ageFrom, toPdfSpec, fromPdfValues, eduAuto };
+  root.FNA = { sp, PEOPLE, RET_ROWS, RET, INC, PRO, DEBT_ROWS, GOALS, PROTECT_Q, EXP, COMMIT, commitText, EVENTS, INTRO_ROWS, PARTNER, introCount, theirEvents, RETURN, NOTES, RECS, HEADER, CHOICES, DATES, GROUPS, MONEY, PAGE4, num, fmt, compute, ageFrom, toPdfSpec, fromPdfValues, eduAuto };
 })(typeof window !== 'undefined' ? window : globalThis);
 </script>
 <script>/* Fills the original FNA Intake PDF with app values using pdf-lib.
@@ -926,6 +1047,17 @@ a{color:var(--tea);font-weight:600}
     const doc = await PDFDocument.load(bytes);
     const form = doc.getForm();
     const font = await doc.embedFont(StandardFonts.Helvetica);
+
+    // the build stitches page 5 on with pypdf, which writes "/Helv" as "\057Helv";
+    // pdf-lib reads that string raw, so decode the escapes back before touching any box
+    const unesc = (s) => (s && s.includes('\\') ? s.replace(/\\([0-7]{1,3})/g, (m, o) => String.fromCharCode(parseInt(o, 8))) : s);
+    for (const fld of form.getFields()) {
+      const af = fld.acroField;
+      if (typeof af.getDefaultAppearance !== 'function') continue;
+      const da = af.getDefaultAppearance();
+      if (da && unesc(da) !== da) af.setDefaultAppearance(unesc(da));
+      for (const w of af.getWidgets()) { const wd = w.getDefaultAppearance && w.getDefaultAppearance(); if (wd && unesc(wd) !== wd) w.setDefaultAppearance(unesc(wd)); }
+    }
 
     const info = (name) => {
       const f = form.getTextField(name);
@@ -1269,10 +1401,12 @@ a{color:var(--tea);font-weight:600}
       });
       const amt = (t) => { const m = /\$?\s*(\d[\d,]*(?:\.\d+)?)\s*(k|m)?\b/i.exec(t || ''); return m ? num(m[1] + (m[2] || '')) : 0; };
       const label = (t, d) => (t || '').replace(/\$?\s*\d[\d,]*(?:\.\d+)?\s*(k|m)?\b/gi, '').replace(/\s+/g, ' ').trim() || d;
-      const tf = txt(sp(F.RET.taxFree, w)); if (amt(tf)) c.assets.push({ name: label(tf, 'Tax free account'), type: 'Roth IRA', owner: who, value: amt(tf), monthly: 0, ef: false, ret: true });
+      // the intake lets you list several accounts in one box, joined with "; "
+      const each = (k) => txt(k).split(/\s*;\s*/).filter(Boolean);
+      each(sp(F.RET.taxFree, w)).forEach((tf) => { if (amt(tf)) c.assets.push({ name: label(tf, 'Tax free account'), type: 'Roth IRA', owner: who, value: amt(tf), monthly: 0, ef: false, ret: true }); });
       const ck = num(st[sp(F.RET.checking, w)]); if (ck) c.assets.push({ name: 'Checking', type: 'Checking', owner: who, value: ck, monthly: 0, ef: true, ret: false });
       const sv = num(st[sp(F.RET.savings, w)]); if (sv) c.assets.push({ name: 'Savings', type: 'Savings', owner: who, value: sv, monthly: 0, ef: true, ret: false });
-      const ot = txt(sp(F.RET.other, w)); if (amt(ot)) c.assets.push({ name: label(ot, 'Other account'), type: /brok|stock|invest/i.test(ot) ? 'Stocks and Bonds' : 'Other', owner: who, value: amt(ot), monthly: 0, ef: false, ret: false });
+      each(sp(F.RET.other, w)).forEach((ot) => { if (amt(ot)) c.assets.push({ name: label(ot, 'Other account'), type: /brok|stock|invest/i.test(ot) ? 'Stocks and Bonds' : 'Other', owner: who, value: amt(ot), monthly: 0, ef: false, ret: false }); });
       const pen = num(st[sp(F.RET.pension.monthly, w)]); if (pen) c.ret[who === 'a' ? 'pensionA' : 'pensionB'] = pen;
       const age = num(st[sp(F.RET.age, w)]); if (age >= 30 && age <= 100) c.ret[who === 'a' ? 'ageA' : 'ageB'] = age;
     }
